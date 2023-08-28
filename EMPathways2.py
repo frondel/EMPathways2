@@ -7,7 +7,6 @@ import networkx as nx
 import numpy as np
 import operator
 
-# Global variables
 reads = {} # reads = {read1: [protein1, protein2, ...]} hashmap storing the list of proteins to which a read maps
 proteins = {} # proteins = {protein1: [read1, read2, ...]} hashmap storing the list of reads that mapped to it
 path_expression = {} # path_expression = {enzyme: exp} "expression" of enzymes
@@ -29,11 +28,9 @@ def parse_arguments():
     parser.add_argument('-po', '--pathway_output', required=False, help='Filename to write Pathways to')
     parser.add_argument('--theta_e', type=float, default=0.000001, help='Theta for enzyme convergence')
     parser.add_argument('--theta_p', type=float, default=0.000001, help='Theta for pathway convergence')
-
     return parser.parse_args()
 
 args = parse_arguments()
-
 ec_pathway_dict = args.enzyme_pathway_dictionary
 ge_file = args.gene_enzyme_file
 weights_file = args.weights_file
@@ -41,8 +38,8 @@ outputenzymes = args.enzyme_output
 outputpathways = args.pathway_output
 theta_e = args.theta_e
 theta_p = args.theta_p
-
 numSample = weights_file[-7:-5]
+
 print("Sample:", numSample)
 
 #Utility Functions
